@@ -38,13 +38,35 @@ function getSignupFormErrors(firstname, email, password, repeatPassword){
         errors.push('Password is required')
         password_input.parentElement.classList.add('incorrect')
     }
+    if(password.length < 8){
+        errors.push('Password must have at least 8 characters')
+        password_input.parentElement.classList.add('incorrect')
+    }
     if(password !== repeatPassword){
         errors.push('Password does not match repeated password')
+        password_input.parentElement.classList.add('incorrect')
+        repeat_password_input.parentElement.classList.add('incorrect')
     }
 
     return errors;
 }
-const allInputs = [firstname_input, email_input, password_input, repeat_password_input]
+
+function getLoginFormErrors(email, password){
+    let errors = []
+
+    if(email === '' || email == null){
+        errors.push('Email is required')
+        email_input.parentElement.classList.add('incorrect')
+    }
+    if(password === '' || password == null){
+        errors.push('Password is required')
+        password_input.parentElement.classList.add('incorrect')
+    }
+
+    return errors;
+}
+
+const allInputs = [firstname_input, email_input, password_input, repeat_password_input].filter(input => input != null)
 
 allInputs.forEach(input => {
     input.addEventListener('input', () => {
