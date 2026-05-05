@@ -18,12 +18,12 @@ form.addEventListener('submit', (e) => {
 
     if(errors.length > 0){
         e.preventDefault()
-        error_message.innerText = error.join(". ")
+        error_message.innerText = errors.join(". ")
     }
 })
 
 function getSignupFormErrors(firstname, email, password, repeatPassword){
-    let erorrs = []
+    let errors = []
 
     if(firstname === '' || firstname == null){
         errors.push('Firstname is required')
