@@ -130,3 +130,6 @@ form div.incorrect label{
 form div.incorrect input{
     background-color: #f06272;
 }
+#error-message{
+    color: #f06272
+}
